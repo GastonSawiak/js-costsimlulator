@@ -2,6 +2,8 @@
 let auditoriaRRHH = "Auditoria sobre recursos humanos de su empresa: Revision de procesos y gestiones internas.";
 let gestionRRHH = "Gestiones internas sobre recursos humanos de su empresa: Organización e implementación de procesos relacionados";
 
+let cardText = document.getElementsByClassName('card-text');
+
 //Arrays
 let arr = ["Masterclass de metodologias agiles", "Masterclass de gestión de equipos", "Masterclass de gestión emocional"];
 //Objetos
@@ -27,12 +29,12 @@ while(true){
     if(costoServicio == 1) {
         costoRRHH = 57000;
         alert(`Usted selecciono: ${auditoriaRRHH} Con un valor de ${costoRRHH}`);
-        document.write(`<h3>Usted selecciono: ${auditoriaRRHH} Con un valor de ${costoRRHH}</h3>`);
+        document.getElementById("card-title").innerHTML=`${auditoriaRRHH} Con un valor de ${costoRRHH}`;
         break;
     }else if (costoServicio == 2) {
         costoRRHH = 73000;
         alert(`Usted selecciono: ${gestionRRHH} Con un valor ${costoRRHH}`);
-        document.write(`<h3>Usted selecciono: ${gestionRRHH} Con un valor de ${costoRRHH}<h3>`);
+        document.getElementById("card-title").innerHTML=`${auditoriaRRHH} Con un valor de ${costoRRHH}`;
         break;
     }else if(costoServicio != 1 || costoServicio != 2){
         alert("Intente nuevamente");
@@ -48,7 +50,7 @@ let descuento = descuentoCostos(costoRRHH);
 
 //Alertar descuento 
 alert(`Recuerde que tiene un 10% de descuento con pago en efectivo! En total: ${descuento}`);
-document.write(`<h3>Recuerde que tiene un 10% de descuento con pago en efectivo! En total: ${descuento}</h3>`);
+document.getElementById("card-text").innerHTML=`Recuerde que tiene un 10% de descuento con pago en efectivo! En total: ${descuento}`;
 
 //Loop para seleccionar servicios adicionales(luego hacer una para seleccionar ninguno!)
 while(true){
@@ -57,12 +59,12 @@ while(true){
     if (opcionExtras == 1) {
         adicionales = 18500;
         alert(`El costo de este servicio seria de ${adicionales}`);
-        document.write(`<h3>El costo de este servicio seria de ${adicionales}</h3>`);
+        document.getElementById("card-text2").innerHTML=`El costo de este servicio seria de ${adicionales}`;
         break;
     }else if (opcionExtras == 2) {
         adicionales = 21400;
         alert(`El costo de este servicio seria de ${adicionales}`);
-        document.write(`<h3>El costo de este servicio seria de ${adicionales}</h3>`);
+        document.getElementById("card-text2").innerHTML=`El costo de este servicio seria de ${adicionales}`;
         break;
     }else if (opcionExtras != 1 || opcionExtras != 2) {
         alert("Intente nuevamente");
@@ -79,11 +81,11 @@ let descuentoFinal = sumaTotal(adicionales);
 
 //Alertar el costo total
 alert(`El total de todo seria: ${descuentoFinal}`);
-document.write(`<h2>El total de todo seria: ${descuentoFinal}</h2>`);
+document.getElementById("card-text3").innerHTML=`El total de todo seria: ${descuentoFinal}`;
 
 //Funcion para conseguir la fecha del dia en el que el usuario realiza el presupuesto
 const f = new Date();
-document.write("Este presupuesto corresponte a la fecha: " + f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
+document.getElementById("card-footer").innerHTML="Este presupuesto corresponte a la fecha: " + f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear();
 
 //Quien esta disponible para el servicio
 staff.forEach(object => {
@@ -107,4 +109,3 @@ const removedProvs = provincias.splice(start, deleteCount);
 
 document.write(`<br>Estamos disponibles en ${provincias}`);
 document.write(`<br>Proximamente vamos a estar en ${removedProvs}`);
-
