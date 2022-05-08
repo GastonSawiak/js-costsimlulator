@@ -49,7 +49,7 @@ let descuento = descuentoCostos(costoRRHH);
 
 //Alertar descuento 
 alert(`Recuerde que tiene un 10% de descuento con pago en efectivo! En total: ${descuento}`);
-document.getElementById("card-text").innerHTML=`Recuerde que tiene un 10% de descuento con pago en efectivo! En total: ${descuento}`;
+document.getElementById("card-text").innerHTML=`Recuerde que tiene un 10% de descuento con pago en efectivo! En total: ${descuento} <span class="badge bg-secondary">10% OFF</span>`;
 
 //Loop para seleccionar servicios adicionales(luego hacer una para seleccionar ninguno!)
 while(true){
@@ -108,7 +108,18 @@ function infoContratar() {
 //Quien esta disponible para el servicio
 staff.forEach(object => {
     if(object.disponible === true){
-        document.write("<br>Personas disponible para el servicio: " + object.teamName);
+        document.getElementById("perDisponible").innerHTML = "Personal disponible"
+        document.getElementById('cardPersonal').innerHTML = 
+        `<div class="card" style="width: 18rem;">
+        <img src="https://media-exp1.licdn.com/dms/image/C4D03AQG2XA6D9phxjA/profile-displayphoto-shrink_800_800/0/1640899805963?e=1657756800&v=beta&t=XbUPXlW9p3KAHd0D7hoO2URhIgbHRAzzgC9EjodSJiA" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">${object.teamName}</h5>
+          <p class="card-text">${object.studies}</p>
+          <a href="https://gastonsawiak.github.io/Crux-consulting/" class="btn btn-primary">Conocer mas</a>
+        </div>
+      </div>`
+    } else if (object.disponible === false) {
+        document.getElementById('cardPersonal').innerHTML = "No hay personal vacante"
     }
 });
 

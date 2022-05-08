@@ -2,10 +2,25 @@
     text-align: center;
     margin: 50px 0 50px 0;
 }
+.title h1 {
+    background: -webkit-linear-gradient(rgb(139, 3, 201), rgb(40, 0, 159)) !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+}
 .card {
     width: 60% !important;
     text-align: center !important;
     justify-content: center !important;
     align-self: center;
     margin: 0 20% 0 20%;
+}
+.btn-primary:hover {
+    background-color: rgb(7, 64, 237) !important;
+}
+#cardPersonal {
+    margin: 2.5% 15% 2.5% 15%;
+}
+#perDisponible {
+    text-align: center;
+    margin: 10px;
 }
