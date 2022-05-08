@@ -1,8 +1,7 @@
 //Variables declaradas
 let auditoriaRRHH = "Auditoria sobre recursos humanos de su empresa: Revision de procesos y gestiones internas.";
 let gestionRRHH = "Gestiones internas sobre recursos humanos de su empresa: Organización e implementación de procesos relacionados";
-
-let cardText = document.getElementsByClassName('card-text');
+let btnContratar = document.querySelector('.btn-primary');
 
 //Arrays
 let arr = ["Masterclass de metodologias agiles", "Masterclass de gestión de equipos", "Masterclass de gestión emocional"];
@@ -87,6 +86,25 @@ document.getElementById("card-text3").innerHTML=`El total de todo seria: ${descu
 const f = new Date();
 document.getElementById("card-footer").innerHTML="Este presupuesto corresponte a la fecha: " + f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear();
 
+//hacer print de informacion solo cuando el cliente hace click en contratar
+
+btnContratar.addEventListener("click", infoContratar);
+
+function infoContratar() {
+
+  document.getElementById("infoContrato").innerHTML = "Pronto nos pondremos en contacto con usted!";
+
+
+    //Funcion que utiliza random para poder mostrar un servicio al azar que pueda ser de interes del cliente
+    document.getElementById('masInfo').innerHTML = "<br>Encontra otros servicios como: " + '<a href="#">' + arr[Math.floor(random(1, 4))-1] + "</a>";
+    
+    random()
+
+    function random(mn, mx) {
+        return Math.random() * (mx - mn) + mn;
+    } 
+} 
+
 //Quien esta disponible para el servicio
 staff.forEach(object => {
     if(object.disponible === true){
@@ -94,18 +112,10 @@ staff.forEach(object => {
     }
 });
 
-//Funcion que utiliza random para poder mostrar un servicio al azar que pueda ser de interes del cliente
-document.write("<br><br>Encontra otros servicios como: " + arr[Math.floor(random(1, 4))-1]),
-random()
-
-function random(mn, mx) {
-    return Math.random() * (mx - mn) + mn;
-} 
-
 //Imprimir solo las provincias habilitadas.
-const start = 3;
-const deleteCount = 2;
-const removedProvs = provincias.splice(start, deleteCount);
+    const start = 3;
+    const deleteCount = 2;
+    const removedProvs = provincias.splice(start, deleteCount);
 
 document.write(`<br>Estamos disponibles en ${provincias}`);
 document.write(`<br>Proximamente vamos a estar en ${removedProvs}`);
