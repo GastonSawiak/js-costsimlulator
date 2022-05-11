@@ -7,6 +7,11 @@
   -webkit-background-clip: text !important;
   -webkit-text-fill-color: transparent !important;
 }
+.title h2 {
+    background: -webkit-linear-gradient(rgb(139, 3, 201), rgb(40, 0, 159)) !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+}
 .card {
     width: 60% !important;
     text-align: center !important;
@@ -23,4 +28,18 @@
 #perDisponible {
     text-align: center;
     margin: 10px;
+}
+#clientData{
+    text-align: center;
+}
+#boton-guardar {
+    margin-bottom: 25px;
+    border-radius: 5px;
+}
+
+h2 {
+    background: -webkit-linear-gradient(rgb(139, 3, 201), rgb(40, 0, 159)) !important;
+    -webkit-background-clip: text !important;
+    -webkit-text-fill-color: transparent !important; 
+    text-align: center !important;
 }

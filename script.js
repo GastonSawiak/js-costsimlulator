@@ -2,6 +2,7 @@
 let auditoriaRRHH = "Auditoria sobre recursos humanos de su empresa: Revision de procesos y gestiones internas.";
 let gestionRRHH = "Gestiones internas sobre recursos humanos de su empresa: Organización e implementación de procesos relacionados";
 let btnContratar = document.querySelector('.btn-primary');
+let btnGuardar = document.getElementById('boton-guardar');
 
 //Arrays
 let arr = ["Masterclass de metodologias agiles", "Masterclass de gestión de equipos", "Masterclass de gestión emocional"];
@@ -20,6 +21,23 @@ let staff = [{
         studies: "Lider del proyecto, encargado de realizar los servicios de consultoria. Años de experiencia como Manager y Gerente. Licenciado en ciencias de la educacion y teologia.",
         disponible: true
     }]
+
+//Local Storage - Guardar Nombre
+document.addEventListener("DOMContentLoaded", function(){
+    btnGuardar.addEventListener('click', function(){
+        /*Captura de datos escrito en los inputs*/        
+        let nom = document.getElementById("nombretxt").value;
+        let apell = document.getElementById("apellidotxt").value;
+        /*Guardando los datos en el LocalStorage*/
+        localStorage.setItem("Nombre", nom);
+        localStorage.setItem("Apellido", apell);
+
+        let nombre = localStorage.getItem("Nombre");
+
+        document.getElementById('welcomeMsg').innerHTML = `Hola ${nombre}!`
+    })
+});
+
 
 //Loop de selección de servicios principales
 while(true){
