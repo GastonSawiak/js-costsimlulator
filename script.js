@@ -5,6 +5,8 @@ let btnContratar = document.querySelector('.btn-primary');
 
 //Arrays
 let arr = ["Masterclass de metodologias agiles", "Masterclass de gestión de equipos", "Masterclass de gestión emocional"];
+let provincias = [" Mendoza", " San Juan ", " San Luis", " Cordoba", " Buenos Aires"];
+
 //Objetos
 let staff = [{
         teamName: "Gaston Sawiak",
@@ -18,8 +20,6 @@ let staff = [{
         studies: "Lider del proyecto, encargado de realizar los servicios de consultoria. Años de experiencia como Manager y Gerente. Licenciado en ciencias de la educacion y teologia.",
         disponible: true
     }]
-
-let provincias = [" Mendoza", " San Juan ", " San Luis", " Cordoba", " Buenos Aires"];
 
 //Loop de selección de servicios principales
 while(true){
