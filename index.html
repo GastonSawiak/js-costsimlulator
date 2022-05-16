@@ -12,12 +12,22 @@
     <div class="title">
         <h1>Presupuesto de servicio</h1>
     </div>
+    <div class="servicioDescripcion">
+      <p>Bienvenido! Vamos a calcular los costos del servicio en el que estes interesado.</p>
+    </div>
     <div id="clientData">
       <h4>¡Empezemos! Coloque su nombre y apellido: <br></h4> 
       <input type="text" placeholder="Nombre" id="nombretxt"><br><br>   
       <input type="text" placeholder="Apellido" id="apellidotxt"><br><br>
       <button id="boton-guardar" class="btn-primary">Guardar</button>
     </div>
+     <div class="selectorServicio">
+      <label for="serviciosMain">Selecciona una opcion:</label>
+      <select name="serviciosMain" id="serviciosMain">
+        <option value="servicio1">Auditoria sobre recursos humanos</option>
+        <option value="servicio2">Gestiones internas sobre recursos humanos</option>
+      </select>
+     </div>
     <h2 id="welcomeMsg"></h2>    
     <div id="content-wrapper">
         <div class="card text-center">

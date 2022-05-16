@@ -24,6 +24,7 @@ let staff = [{
 
 //Local Storage - Guardar Nombre
 document.addEventListener("DOMContentLoaded", function(){
+
     btnGuardar.addEventListener('click', function(){
         /*Captura de datos escrito en los inputs*/        
         let nom = document.getElementById("nombretxt").value;

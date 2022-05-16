@@ -12,6 +12,13 @@
   -webkit-background-clip: text !important;
   -webkit-text-fill-color: transparent !important;
 }
+.servicioDescripcion {
+    text-align: center;
+}
+.selectorServicio {
+    text-align: center;
+    align-self: center;
+}
 .card {
     width: 60% !important;
     text-align: center !important;
