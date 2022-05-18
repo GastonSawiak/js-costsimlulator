@@ -3,6 +3,8 @@ let auditoriaRRHH = "Auditoria sobre recursos humanos de su empresa: Revision de
 let gestionRRHH = "Gestiones internas sobre recursos humanos de su empresa: Organización e implementación de procesos relacionados";
 let btnContratar = document.querySelector('.btn-primary');
 let btnGuardar = document.getElementById('boton-guardar');
+let btnS = document.querySelector('#btnS');
+let sb = document.querySelector('#serviciosMain');  
 
 //Arrays
 let arr = ["Masterclass de metodologias agiles", "Masterclass de gestión de equipos", "Masterclass de gestión emocional"];
@@ -41,7 +43,7 @@ document.addEventListener("DOMContentLoaded", function(){
 
 
 //Loop de selección de servicios principales
-while(true){
+/*while(true){
     let costoServicio = parseInt(prompt(`Bienvenido! Vamos a calcular los costos del servicio en el que estes interesado: Selecciona una opcion con un numero: \n\n 1. Auditoria de Recursos humanos.\n 2. Gestión de Recursos Humanos.`));
 
     if(costoServicio == 1) {
@@ -52,13 +54,29 @@ while(true){
     }else if (costoServicio == 2) {
         costoRRHH = 73000;
         alert(`Usted selecciono: ${gestionRRHH} Con un valor ${costoRRHH}`);
-        document.getElementById("card-title").innerHTML=`${auditoriaRRHH} Con un valor de ${costoRRHH}`;
+        document.getElementById("card-title").innerHTML=`${gestionRRHH} Con un valor de ${costoRRHH}`;
         break;
     }else if(costoServicio != 1 || costoServicio != 2){
         alert("Intente nuevamente");
         continue;
     }
-}    
+}*/ 
+
+//la wea fome seleccionar option de servicio en menu select (esto me costo lagrimas)
+
+btnS.addEventListener('click', displayMains);
+
+function displayMains() {
+    // show the selected index
+    if(sb.selectedIndex == 0){
+        costoRRHH = 57000;
+        document.getElementById("card-title").innerHTML=`${auditoriaRRHH} Con un valor de ${costoRRHH}`;
+    }else if (sb.selectedIndex == 1){
+        costoRRHH = 73000;
+        document.getElementById("card-title").innerHTML=`${gestionRRHH} Con un valor de ${costoRRHH}`;
+    };
+}
+
 //Funcion para realizar descuentos
 function descuentoCostos(costoRRHH){
     return (costoRRHH * 0.90);
@@ -132,11 +150,11 @@ staff.forEach(object => {
         `<div class="card" style="width: 18rem;">
         <img src="https://media-exp1.licdn.com/dms/image/C4D03AQG2XA6D9phxjA/profile-displayphoto-shrink_800_800/0/1640899805963?e=1657756800&v=beta&t=XbUPXlW9p3KAHd0D7hoO2URhIgbHRAzzgC9EjodSJiA" class="card-img-top" alt="...">
         <div class="card-body">
-          <h5 class="card-title">${object.teamName}</h5>
-          <p class="card-text">${object.studies}</p>
-          <a href="https://gastonsawiak.github.io/Crux-consulting/" class="btn btn-primary">Conocer mas</a>
+            <h5 class="card-title">${object.teamName}</h5>
+            <p class="card-text">${object.studies}</p>
+            <a href="https://gastonsawiak.github.io/Crux-consulting/" class="btn btn-primary">Conocer mas</a>
         </div>
-      </div>`
+        </div>`
     } else if (object.disponible === false) {
         document.getElementById('cardPersonal').innerHTML = "No hay personal vacante"
     }
