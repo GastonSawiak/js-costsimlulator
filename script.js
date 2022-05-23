@@ -5,6 +5,7 @@ let btnContratar = document.querySelector('.btn-primary');
 let btnGuardar = document.getElementById('boton-guardar');
 let btnS = document.querySelector('#btnS');
 let sb = document.querySelector('#serviciosMain');  
+let costoRRHH = 0;
 
 //Arrays
 let arr = ["Masterclass de metodologias agiles", "Masterclass de gestión de equipos", "Masterclass de gestión emocional"];
@@ -124,13 +125,11 @@ const f = new Date();
 document.getElementById("card-footer").innerHTML="Este presupuesto corresponte a la fecha: " + f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear();
 
 //hacer print de informacion solo cuando el cliente hace click en contratar
-
 btnContratar.addEventListener("click", infoContratar);
 
 function infoContratar() {
 
   document.getElementById("infoContrato").innerHTML = "Pronto nos pondremos en contacto con usted!";
-
 
     //Funcion que utiliza random para poder mostrar un servicio al azar que pueda ser de interes del cliente
     document.getElementById('masInfo').innerHTML = "<br>Encontra otros servicios como: " + '<a href="#">' + arr[Math.floor(random(1, 4))-1] + "</a>";
