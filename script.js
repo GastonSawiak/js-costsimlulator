@@ -6,6 +6,7 @@ let btnGuardar = document.getElementById('boton-guardar');
 let btnS = document.querySelector('#btnS');
 let sb = document.querySelector('#serviciosMain');  
 let costoRRHH = 0;
+let kanyetext = document.getElementById('kanyetitleh')
 
 //Arrays
 let arr = ["Masterclass de metodologias agiles", "Masterclass de gestión de equipos", "Masterclass de gestión emocional"];
@@ -166,3 +167,9 @@ staff.forEach(object => {
 
 document.write(`<br>Estamos disponibles en ${provincias}`);
 document.write(`<br>Proximamente vamos a estar en ${removedProvs}`);
+
+fetch('https://api.kanye.rest')
+    .then(res => res.json())
+    .then(quote => {
+        kanyetext.innerHTML = `<p> ${quote.quote} </p>`
+    })
