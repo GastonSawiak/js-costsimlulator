@@ -1,12 +1,14 @@
 //Variables declaradas
 let auditoriaRRHH = "Auditoria sobre recursos humanos de su empresa: Revision de procesos y gestiones internas.";
 let gestionRRHH = "Gestiones internas sobre recursos humanos de su empresa: Organización e implementación de procesos relacionados";
-let btnContratar = document.querySelector('.btn-primary');
+let btnContratar = document.querySelector('#btnContratar');
 let btnGuardar = document.getElementById('boton-guardar');
 let btnS = document.querySelector('#btnS');
-let sb = document.querySelector('#serviciosMain');  
+let btnSec = document.querySelector('#btnSec');
+let sb = document.querySelector('#serviciosMain'); 
+let sSec = document.querySelector('#serviciosSec');  
 let costoRRHH = 0;
-let kanyetext = document.getElementById('kanyetitleh')
+let kanyetext = document.getElementById('kanyetitleh');
 
 //Arrays
 let arr = ["Masterclass de metodologias agiles", "Masterclass de gestión de equipos", "Masterclass de gestión emocional"];
@@ -24,7 +26,7 @@ let staff = [{
         role: ["Chief Executive Officer", "CEO"],
         studies: "Lider del proyecto, encargado de realizar los servicios de consultoria. Años de experiencia como Manager y Gerente. Licenciado en ciencias de la educacion y teologia.",
         disponible: true
-    }]
+    }];
 
 //Local Storage - Guardar Nombre
 document.addEventListener("DOMContentLoaded", function(){
@@ -76,49 +78,46 @@ function displayMains() {
     }else if (sb.selectedIndex == 1){
         costoRRHH = 73000;
         document.getElementById("card-title").innerHTML=`${gestionRRHH} Con un valor de ${costoRRHH}`;
-    };
-}
+    }
+};
+
+btnSec.addEventListener('click', displaySecs);
+
+function displaySecs() {
+    // show the selected index
+    if(sSec.selectedIndex == 0){
+        adicionales = 18500;
+        document.getElementById("card-text2").innerHTML=`El costo de este servicio adicional seria de ${adicionales}`;
+    }else if (sSec.selectedIndex == 1){
+        adicionales = 16500;
+        document.getElementById("card-text2").innerHTML=`El costo de este servicio adicional seria de ${adicionales}`;
+    }else if (sSec.selectedIndex == 2){
+        adicionales = 16700;
+        document.getElementById("card-text2").innerHTML=`El costo de este servicio adicional seria de ${adicionales}`;
+    }else if (sSec.selectedIndex == 3){
+        adicionales = 0;
+        document.getElementById("card-text2").innerHTML=`El costo de este servicio adicional seria de ${adicionales}`;
+    }
+};
 
 //Funcion para realizar descuentos
 function descuentoCostos(costoRRHH){
     return (costoRRHH * 0.90);
-}
+};
 
 let descuento = descuentoCostos(costoRRHH);
 
 //Alertar descuento 
-alert(`Recuerde que tiene un 10% de descuento con pago en efectivo! En total: ${descuento}`);
 document.getElementById("card-text").innerHTML=`Recuerde que tiene un 10% de descuento con pago en efectivo! En total: ${descuento} <span class="badge bg-secondary">10% OFF</span>`;
-
-//Loop para seleccionar servicios adicionales(luego hacer una para seleccionar ninguno!)
-while(true){
-    let opcionExtras = parseInt(prompt("Los servicios adicionales son: \n\n 1. Gestion y auditoria de contenido de calidad en el footprint digital. \n 2. Implemetación de metodologias SCRUM en los equipos presentes en la organización."));
-
-    if (opcionExtras == 1) {
-        adicionales = 18500;
-        alert(`El costo de este servicio seria de ${adicionales}`);
-        document.getElementById("card-text2").innerHTML=`El costo de este servicio seria de ${adicionales}`;
-        break;
-    }else if (opcionExtras == 2) {
-        adicionales = 21400;
-        alert(`El costo de este servicio seria de ${adicionales}`);
-        document.getElementById("card-text2").innerHTML=`El costo de este servicio seria de ${adicionales}`;
-        break;
-    }else if (opcionExtras != 1 || opcionExtras != 2) {
-        alert("Intente nuevamente");
-        continue;
-    }
-}
 
 //Funcion para sumar todos los totales
 function sumaTotal (adicionales) {
-    return (descuento + adicionales);
-}
+    return (descuento + adicionales)
+};
 
 let descuentoFinal = sumaTotal(adicionales);
 
 //Alertar el costo total
-alert(`El total de todo seria: ${descuentoFinal}`);
 document.getElementById("card-text3").innerHTML=`El total de todo seria: ${descuentoFinal}`;
 
 //Funcion para conseguir la fecha del dia en el que el usuario realiza el presupuesto
@@ -140,7 +139,7 @@ function infoContratar() {
     function random(mn, mx) {
         return Math.random() * (mx - mn) + mn;
     } 
-} 
+} ;
 
 //Quien esta disponible para el servicio
 staff.forEach(object => {
@@ -172,4 +171,4 @@ fetch('https://api.kanye.rest')
     .then(res => res.json())
     .then(quote => {
         kanyetext.innerHTML = `<p> ${quote.quote} </p>`
-    })
+    });
