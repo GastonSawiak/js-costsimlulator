@@ -8,6 +8,7 @@ let btnSec = document.querySelector('#btnSec');
 let sb = document.querySelector('#serviciosMain'); 
 let sSec = document.querySelector('#serviciosSec');  
 let costoRRHH = 0;
+let adicionales = 0;
 let kanyetext = document.getElementById('kanyetitleh');
 
 //Arrays
@@ -105,10 +106,10 @@ function descuentoCostos(costoRRHH){
     return (costoRRHH * 0.90);
 };
 
-let descuento = descuentoCostos(costoRRHH);
+let descuento = descuentoCostos();
 
 //Alertar descuento 
-document.getElementById("card-text").innerHTML=`Recuerde que tiene un 10% de descuento con pago en efectivo! En total: ${descuento} <span class="badge bg-secondary">10% OFF</span>`;
+document.getElementById("card-text").innerHTML=`Recuerde que tiene un 10% de descuento con pago en efectivo! <span class="badge bg-secondary">10% OFF</span>`;
 
 //Funcion para sumar todos los totales
 function sumaTotal (adicionales) {
@@ -121,13 +122,20 @@ let descuentoFinal = sumaTotal(adicionales);
 document.getElementById("card-text3").innerHTML=`El total de todo seria: ${descuentoFinal}`;
 
 //Funcion para conseguir la fecha del dia en el que el usuario realiza el presupuesto
-const f = new Date();
-document.getElementById("card-footer").innerHTML="Este presupuesto corresponte a la fecha: " + f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear();
+function Date() {
+    const f = new Date();
+    document.getElementById("card-footer").innerHTML="Este presupuesto corresponte a la fecha: " + f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear();
+}
+
 
 //hacer print de informacion solo cuando el cliente hace click en contratar
 btnContratar.addEventListener("click", infoContratar);
 
+
+
 function infoContratar() {
+
+    Date()
 
   document.getElementById("infoContrato").innerHTML = "Pronto nos pondremos en contacto con usted!";
 
